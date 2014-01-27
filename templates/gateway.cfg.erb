@@ -1,0 +1,100 @@
+##############################################################
+# GATEWAY SETTINGS
+
+server_bind = <%= @server_bind %>
+
+# Please refer to the administrator manual or manpage why HTTP is used rather than the UNIX socket.
+server_socket = <%= @server_socket %>
+
+# Set this value to a name to show in the logon greeting to clients.
+# Leave empty to use DNS to find this name.
+server_hostname = <%= @server_hostname %>
+
+# Whether to show the hostname in the logon greeting to clients.
+server_hostname_greeting = <%= @server_hostname_greeting %>
+
+# drop privileges and run the process as this user
+run_as_user = <%= @run_as_user %>
+
+# drop privileges and run the process as this group
+run_as_group = <%= @run_as_group %>
+
+# create a pid file for stopping the service via the init.d scripts
+pid_file = <%= @pid_file %>
+
+# run server in this path (when not using the -F switch)
+running_path = <%= @running_path %>
+
+# enable/disable POP3, and POP3 listen port
+pop3_enable = <%= @pop3_enable %>
+pop3_port = <%= @pop3_port %>
+
+# enable/disable Secure POP3, and Secure POP3 listen port
+pop3s_enable = <%= @pop3s_enable %>
+pop3s_port = <%= @pop3s_port %>
+
+# enable/disable IMAP, and IMAP listen port
+imap_enable = <%= @imap_enable %>
+imap_port = <%= @imap_port %>
+
+# enable/disable Secure IMAP, and Secure IMAP listen port
+imaps_enable = <%= @imaps_enable %>
+imaps_port = <%= @imaps_port %>
+
+# Only mail folder for IMAP or all subfolders (calendar, contacts, tasks, etc. too)
+imap_only_mailfolders = <%= @imap_only_mailfolders %>
+
+# Show Public folders for IMAP
+imap_public_folders = <%= @imap_public_folders %>
+
+# IMAP clients may use IDLE command
+imap_capability_idle = <%= @imap_capability_idle %>
+
+# The maximum size of an email that can be uploaded to the gateway
+imap_max_messagesize = <%= @imap_max_messagesize %>
+
+# Override the e-mail charset and generate using utf-8 (when imap data is not present on the item)
+imap_generate_utf8 = <%= @imap_generate_utf8 %>
+
+# Internally issue the expunge command to directly delete e-mail marked for deletion in IMAP.
+imap_expunge_on_delete = <%= @imap_expunge_on_delete %>
+
+# Store full rfc822 message during APPEND
+imap_store_rfc822 = <%= @imap_store_rfc822 %>
+
+# Maximum count of allowed failed IMAP command counts per client
+imap_max_fail_commands = <%= @imap_max_fail_commands %>
+
+# File with RSA key for SSL
+ssl_private_key_file = <%= @ssl_private_key_file %>
+
+#File with certificate for SSL
+ssl_certificate_file = <%= @ssl_certificate_file %>
+
+# Verify client certificate
+ssl_verify_client = <%= @ssl_verify_client %>
+
+# Client verify file and/or path
+ssl_verify_file = <%= @ssl_verify_file %>
+ssl_verify_path = <%= @ssl_verify_path %>
+
+# Accept SSLv2 only incoming connections
+ssl_enable_v2 = <%= @ssl_enable_v2 %>
+
+# Process model, using pthreads (thread) or processes (fork)
+process_model = <%= @process_model %>
+
+##############################################################
+# GATEWAY LOG SETTINGS
+
+# Logging method (syslog, file)
+log_method = <%= @log_method %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Logfile for log_method = file, use '-' for stderr
+log_file = <%= @log_file %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>

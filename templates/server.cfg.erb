@@ -1,0 +1,433 @@
+##############################################################
+# SERVER SETTINGS
+
+# IP Address to bind to (0.0.0.0 for ANY)
+# Set to 127.0.0.1 if connections should only come from localhost
+# and through the webserver proxy
+server_bind = <%= @server_bind %>
+
+# Accept normal TCP connections (not recommended to disable)
+server_tcp_enabled = <%= @server_tcp_enabled %>
+
+# Port to bind to
+server_tcp_port = <%= @server_tcp_port %>
+
+# Accept unix pipe connections (not recommended to disable)
+server_pipe_enabled = <%= @server_pipe_enabled %>
+
+# Unix socket location
+server_pipe_name = <%= @server_pipe_name %>
+
+# Priority unix socket location
+server_pipe_priority = <%= @server_pipe_priority %>
+
+# Name for identifying the server in a multi-server environment
+server_name = <%= @server_name %>
+
+# Override the hostname of this server, used by Kerberos SSO if enabled
+server_hostname = <%= @server_hostname %>
+
+# Database engine (mysql)
+database_engine = <%= @database_engine %>
+
+# Allow connections from normal users through the unix socket
+allow_local_users = <%= @allow_local_users %>
+
+# local admin users who can connect to any store (use this for the zarafa-dagent)
+# field is SPACE separated
+# eg: local_admin_users = root vmail
+local_admin_users = <%= @local_admin_users %>
+
+# e-mail address of the Zarafa System user
+system_email_address = <%= @system_email_address %>
+
+# drop privileges and run the process as this user
+run_as_user = <%= @run_as_user %>
+
+# drop privileges and run the process as this group
+run_as_group = <%= @run_as_group %>
+
+# create a pid file for stopping the service via the init.d scripts
+pid_file = /var/run/zarafa-server.pid
+
+# run server in this path (when not using the -F switch)
+running_path = <%= @running_path %>
+
+# create memory coredumps upon crash in the running_path directory
+coredump_enabled = <%= @coredump_enabled %>
+
+# session timeout for clients. Values lower than 300 will be upped to 300
+# automatically. If the server hears nothing from a client in session_timeout
+# seconds, then the session is killed.
+session_timeout = <%= @session_timeout %>
+
+# Socket to connect to license server
+license_socket = <%= @license_socket %>
+
+# Time (in seconds) to wait for a connection to the license server before 
+# terminating the request.
+license_timeout = <%= @license_timeout %>
+
+##############################################################
+# LOG SETTINGS
+
+# Logging method (syslog, file), syslog facility is 'mail'
+log_method = <%= @log_method %>
+
+# Logfile (for log_method = file, '-' for stderr)
+log_file = <%= @log_file %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>
+
+##############################################################
+# AUDIT LOG SETTINGS
+
+# Audit logging is by default not enabled
+audit_log_enabled = <%= @audit_log_enabled %>
+
+# Audit logging method (syslog, file), syslog facility is 'authpriv'
+audit_log_method = <%= @audit_log_method %>
+
+# Audit logfile (for log_method = file, '-' for stderr)
+audit_log_file = <%= @audit_log_file %>
+
+# Audit loglevel (0=no logging, 1=full logging)
+audit_log_level = <%= @audit_log_level %>
+
+# Audit log timestamp - prefix each log line with timestamp in 'file' logging mode
+audit_log_timestamp = <%= @audit_log_timestamp %>
+
+##############################################################
+# MYSQL SETTINGS (for database_engine = mysql)
+
+# MySQL hostname to connect to for database access
+mysql_host = <%= @mysql_host %>
+
+# MySQL port to connect with (usually 3306)
+mysql_port = <%= @mysql_port %>
+
+# The user under which we connect with MySQL
+mysql_user = <%= @mysql_user %>
+
+# The password for the user (leave empty for no password)
+mysql_password = <%= @mysql_password %>
+
+# Override the default MySQL socket to access mysql locally
+# Works only if the mysql_host value is empty or 'localhost'
+mysql_socket = <%= @mysql_socket %>
+
+# Database to connect to
+mysql_database = <%= @mysql_database %>
+
+# Where to place attachments. Value can be 'database' or 'files'
+attachment_storage = <%= @attachment_storage %>
+
+# When attachment_storage is 'files', use this path to store the files
+attachment_path = <%= @attachment_path %>
+
+# Compression level for attachments when attachment_storage is 'files'.
+# Set compression level for attachments disabled=0, max=9
+attachment_compression = <%= @attachment_compression %>
+
+##############################################################
+#  SSL SETTINGS
+
+# enable SSL support in server
+server_ssl_enabled = <%= @server_ssl_enabled %>
+
+# Listen for SSL connections on this port
+server_ssl_port = <%= @server_ssl_port %>
+
+# Required Server certificate, contains the certificate and the private key parts
+server_ssl_key_file = <%= @server_ssl_key_file %>
+
+# Password of Server certificate
+server_ssl_key_pass = <%= @server_ssl_key_pass %>
+
+# Required Certificate Authority of server
+server_ssl_ca_file = <%= @server_ssl_ca_file %>
+
+# Path with CA certificates, e.g. /etc/ssl/certs
+server_ssl_ca_path = <%= @server_ssl_ca_path %>
+
+# Accept SSLv2 only connections. Normally v3 connections are used.
+server_ssl_enable_v2 = <%= @server_ssl_enable_v2 %>
+
+# Path of SSL Public keys of clients
+sslkeys_path = <%= @sslkeys_path %>
+
+##############################################################
+# THREAD SETTINGS
+
+# Number of server threads
+# default: 8
+threads = <%= @threads %>
+
+# Watchdog frequency. The number of watchdog checks per second.
+# default: 1
+watchdog_frequency = <%= @watchdog_frequency %>
+
+# Watchdog max age. The maximum age in ms of a task before a
+# new thread is started.
+# default: 500
+watchdog_max_age = <%= @watchdog_max_age %>
+
+# Maximum SOAP keep_alive value
+# default: 100
+server_max_keep_alive_requests = <%= @server_max_keep_alive_requests %>
+
+# SOAP recv timeout value (time between requests)
+# default: 5
+server_recv_timeout = <%= @server_recv_timeout %>
+
+# SOAP read timeout value (time during requests)
+# default: 60
+server_read_timeout = <%= @server_read_timeout %>
+
+# SOAP send timeout value
+# default: 60
+server_send_timeout = <%= @server_send_timeout %>
+
+##############################################################
+#  OTHER SETTINGS
+
+# Softdelete clean cycle (in days) 0=never running
+softdelete_lifetime = <%= @softdelete_lifetime %>
+
+# Sync lifetime, removes all changes remembered for a client after x days of inactivity
+sync_lifetime = <%= @sync_lifetime %>
+
+# Set to 'yes' if all changes (for synchronization) to messages should be logged to the database
+sync_log_all_changes = <%= @sync_log_all_changes %>
+
+# Set to 'yes' if you have Kerberos or NTLM correctly configured for single sign-on
+enable_sso = <%= @enable_sso %>
+
+# Set to 'yes' if you want to show the GAB to your users
+enable_gab = <%= @enable_gab %>
+
+# Authentication can be through plugin (default, recommended), pam or kerberos
+auth_method = <%= @auth_method %>
+
+# If auth_method is set to pam, you should provide the pam service name
+pam_service = <%= @pam_service %>
+
+
+#############################################################
+# CACHE SETTINGS
+#
+# To see the live cache usage, use 'zarafa-stats --system'.
+
+# Size in bytes of the 'cell' cache (should be set as high as you can afford to set it)
+cache_cell_size = <%= @cache_cell_size %>
+
+# Size in bytes of the 'object' cache
+cache_object_size = <%= @cache_object_size %>
+
+# Size in bytes of the 'indexed object' cache
+cache_indexedobject_size = <%= @cache_indexedobject_size %>
+
+# Size in bytes of the userquota details
+cache_quota_size = <%= @cache_quota_size %>
+
+# Lifetime for userquota details
+cache_quota_lifetime = <%= @cache_quota_lifetime %>
+
+# Size in bytes of the acl cache
+cache_acl_size = <%= @cache_acl_size %>
+
+# Size in bytes of the store id/guid cache
+cache_store_size = <%= @cache_store_size %>
+
+# Size in bytes of the 'user id' cache (this is allocated twice)
+cache_user_size = <%= @cache_user_size %>
+
+# Size in bytes of the 'user details' cache
+cache_userdetails_size = <%= @cache_userdetails_size %>
+
+# Lifetime for user details
+cache_userdetails_lifetime = <%= @cache_userdetails_lifetime %>
+
+# Size in bytes of the server details (multiserver setups only)
+cache_server_size = <%= @cache_server_size %>
+
+# Lifetime for server details (multiserver setups only)
+cache_server_lifetime = <%= @cache_server_lifetime %>
+
+
+##############################################################
+#  QUOTA SETTINGS
+
+# The default Warning Quota Level. Set to 0 to disable this level.
+# The user will receive an email when this level is reached. Value is in Mb. Default value is 0.
+quota_warn = <%= @quota_warn %>
+
+# The default Soft Quota Level. Set to 0 to disable this level.
+# The user will still receive mail, but sending new mail is prohibited, until objects are removed from the store.
+# VALUE is in Mb. Default value is 0.
+quota_soft = <%= @quota_soft %>
+
+# The default Hard Quota Level. Set to 0 to disable this level.
+# The user can not receive and send mail, until objects are removed from the store.
+# Value is in Mb. Default value is 0.
+quota_hard = <%= @quota_hard %>
+
+# The default Warning Quota Level for multitenant public stores. Set to 0 to disable this level.
+# The tenant administrator will receive an email when this level is reached. Value is in Mb. Default value is 0.
+companyquota_warn      = <%= @companyquota_warn %>
+
+
+##############################################################
+#  USER PLUGIN SETTINGS
+
+# Name of the plugin that handles users
+# Required, default = ldap
+# Values: ldap, unix, db, ldapms (available in enterprise license)
+user_plugin = <%= @user_plugin %>
+
+# configuration file of the user plugin, examples can be found in /usr/share/zarafa/example-config
+user_plugin_config = <%= @user_plugin_config %>
+
+# location of the zarafa plugins
+# if you have a 64bit distribution, this probably should be changed to /usr/lib64/zarafa
+plugin_path = <%= @plugin_path %>
+
+# scripts which create stores for users from an external source
+# used for ldap and unix plugins only
+createuser_script = <%= @createuser_script %>
+deleteuser_script = <%= @deleteuser_script %>
+creategroup_script = <%= @creategroup_script %>
+deletegroup_script = <%= @deletegroup_script %>
+createcompany_script = <%= @createcompany_script %>
+deletecompany_script = <%= @deletecompany_script %>
+
+# Set this option to 'yes' to skip the creation and deletion of new users
+# The action will be logged, so you can see if your changes to the plugin
+# configuration are correct.
+user_safe_mode = <%= @user_safe_mode %>
+
+##############################################################
+# MISC SETTINGS
+
+# Thread size in KB, default is 512
+# WARNING: Do not set too small, your server WILL crash
+thread_stacksize = <%= @thread_stacksize %>
+
+# Enable multi-tenancy environment
+# When set to true it is possible to create tenants within the
+# zarafa instance and assign all users and groups to particular
+# tenants.
+# When set to false, the normal single-tenancy environment is created.
+enable_hosted_zarafa = <%= @enable_hosted_zarafa %>
+
+# Enable multi-server environment
+# When set to true it is possible to place users and tenants on
+# specific servers.
+# When set to false, the normal single-server environment is created.
+enable_distributed_zarafa = <%= @enable_distributed_zarafa %>
+
+# Display format of store name
+# Allowed variables:
+#  %u Username
+#  %f Fullname
+#  %c Teantname
+# default: %f
+storename_format = <%= @storename_format %>
+
+# Loginname format (for Multi-tenancy installations)
+# When the user does not login through a system-wide unique
+# username (like the email address) a unique name is created
+# by combining the username and the tenantname.
+# With this configuration option you can set how the
+# loginname should be built up.
+#
+# Note: Do not use the = character in the format.
+#
+# Allowed variables:
+#  %u Username
+#  %c Teantname 
+#
+# default: %u
+loginname_format = <%= @loginname_format %>
+
+# Set to yes for Windows clients to be able to download the latest
+# Zarafa Outlook client from the Zarafa server
+client_update_enabled = <%= @client_update_enabled %>
+
+# Place the correct Zarafa Outlook Client in this directory for
+# Windows clients to download through the Zarafa server
+client_update_path = <%= @client_update_path %>
+
+# Recieve update information from the client (0 = disabled, 1 = only on error, 2 = log always)
+client_update_log_level = <%= @client_update_log_level %>
+
+# Log location for the client auto update files
+client_update_log_path = <%= @client_update_log_path %>
+
+# Everyone is a special internal group, which contains every user and group
+# You may want to disable this group from the Global Addressbook by setting
+# this option to 'yes'. Administrators will still be able to see the group.
+hide_everyone = <%= @hide_everyone %>
+
+# System is a special internal user, which has super-admin privileges
+# You may want to disable this user from the Global Addressbook by setting
+# this option to 'yes'. Administrators will still be able to see the user.
+hide_system = <%= @hide_system %>
+
+# Use Indexing service for faster searching.
+# Enabling this option requires the zarafa-search service to
+# be running.
+search_enabled = <%= @search_enabled %>
+
+# Path to the zarafa-search service, this option is only required
+# if the server is going to make use of the indexing service.
+search_socket = <%= @search_socket %>
+
+# Time (in seconds) to wait for a connection to the zarafa-search service
+# before terminating the indexed search request.
+search_timeout = <%= @search_timeout %>
+
+# Allow enhanced ICS operations to speedup synchronization with cached profiles.
+# default: yes
+enable_enhanced_ics = <%= @enable_enhanced_ics %>
+
+# SQL Procedures allow for some optimized queries when streaming with enhanced ICS.
+# This is default disabled because you must set 'thread_stack = 256k' in your
+# MySQL server config under the [mysqld] tag and restart your MySQL server.
+enable_sql_procedures = <%= @enable_sql_procedures %>
+
+# Synchronize GAB users on every open of the GAB (otherwise, only on 
+# zarafa-admin --sync)
+sync_gab_realtime = <%= @sync_gab_realtime %>
+
+# Disable features for users. Default all features are disabled. This
+# list is space separated. Currently valid values: imap
+disabled_features = <%= @disabled_features %>
+
+# Maximum number of deferred records in total
+max_deferred_records = <%= @max_deferred_records %>
+
+# Maximum number of deferred records per folder
+max_deferred_records_folder = <%= @max_deferred_records_folder %>
+
+# Restrict the permissions that admins receive to folder permissions only. Please
+# read the server.cfg manpage before enabling this option so you really understand
+# the implications
+restrict_admin_permissions = <%= @restrict_admin_permissions %>
+
+# The maximum level of attachment recursion; Defines the number of
+# attachment-in-attachment in-attachment levels are allowed when saving and
+# replicating objects in the database. If you really want a higher level of
+# recursion than about 20, you probably have to increase MySQL's stack_size
+# to allow replication to work properly.
+embedded_attachment_limit = <%= @embedded_attachment_limit %>
+
+# Header to detect whether a connection has been received through a proxy. The
+# value of the header is not inspected. If the header exists then the connection
+# is taken to be received via a proxy. An empty value disables proxy detection
+# and the value of '*' is used to indicate that all connections are proxied
+proxy_header = <%= @proxy_header %>
