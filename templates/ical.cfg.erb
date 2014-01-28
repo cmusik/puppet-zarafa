@@ -1,0 +1,87 @@
+###############################################################################
+# << FILE MANAGED BY PUPPET >>
+# Manual changes are likey to be overwritten
+###############################################################################
+
+##############################################################
+# ICAL SETTINGS
+
+# drop privileges and run the process as this user
+run_as_user = <%= @run_as_user %>
+
+# drop privileges and run the process as this group
+run_as_group = <%= @run_as_group %>
+
+# create a pid file for stopping the service via the init.d scripts
+pid_file = <%= @pid_file %>
+
+# run server in this path (when not using the -F switch)
+running_path = <%= @running_path %>
+
+# IP Address to bind to (0.0.0.0 for ANY)
+server_bind = <%= @server_bind %>
+
+# wether normal connections can be made to the ical server
+ical_enable = <%= @ical_enable %>
+
+# port which the ical server listens on for normal connections
+ical_port = <%= @ical_port %>
+
+# wether ssl connections can be made to the ical server
+icals_enable = <%= @icals_enable %>
+
+# port which the ical server listens on for ssl connections
+icals_port = <%= @icals_port %>
+
+# default connection to the Zarafa server
+# Please refer to the administrator manual or manpage why HTTP is used rather than the UNIX socket.
+server_socket = <%= @server_socket %>
+
+# Process model, using pthreads (thread) or processes (fork)
+process_model = <%= @process_model %>
+
+##############################################################
+# ICAL LOG SETTINGS
+
+# Logging method (syslog, file)
+log_method = <%= @log_method %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Logfile for log_method = file, use '-' for stderr
+log_file = <%= @log_file %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>
+
+##############################################################
+# ICAL SSL SETTINGS FOR INCOMING CONNECTIONS
+
+# File with RSA key for SSL
+ssl_private_key_file = <%= @ssl_private_key_file %>
+
+# File with certificate for SSL
+ssl_certificate_file = <%= @ssl_certificate_file %>
+
+# Verify client certificate
+ssl_verify_client = <%= @ssl_verify_client %>
+
+# Client verify file and/or path
+ssl_verify_file = <%= @ssl_verify_file %>
+ssl_verify_path = <%= @ssl_verify_path %>
+
+# Accept SSLv2 only incoming connections
+ssl_enable_v2 = <%= @ssl_enable_v2 %>
+
+##############################################################
+# OTHER ICAL SETTINGS
+
+# The timezone of the system clock
+server_timezone = <%= @server_timezone %>
+
+# The charset of data to expect when the client doesn't specify any
+default_charset = <%= @default_charset %>
+
+# Enable the iCalendar GET method for downloading calendars
+enable_ical_get = <%= @enable_ical_get %>
