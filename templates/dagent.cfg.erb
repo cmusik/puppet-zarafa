@@ -1,0 +1,123 @@
+###############################################################################
+# << FILE MANAGED BY PUPPET >>
+# Manual changes are likey to be overwritten
+###############################################################################
+
+##############################################################
+# DAGENT SETTINGS
+
+# connection to the zarafa server
+server_socket = <%= @server_socket %>
+
+##############################################################
+# DAGENT SSL LOGIN SETTINGS
+# 
+# Note: server_socket must be set to https://servername:portname/zarafa
+#       to use this type of login method
+
+# Login to the Zarafa server using this SSL Key
+sslkey_file = <%= @sslkey_file %>
+
+# The password of the SSL Key
+sslkey_pass = <%= @sslkey_pass %>
+
+##############################################################
+# DAGENT LOG SETTINGS
+
+# Logging method (syslog, file)
+log_method = <%= @log_method %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Logfile for log_method = file, use '-' for stderr
+log_file = <%= @log_file %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>
+
+# Log raw message to a file
+log_raw_message = <%= @log_raw_message %>
+
+# Log raw messages path
+log_raw_message_path = <%= @log_raw_message_path %>
+
+##############################################################
+# DAGENT LMTP SETTINGS
+#  start dagent with -d to create an lmtp daemon of the zarafa-dagent
+
+# binding address for LMTP daemon
+# change to 0.0.0.0 if you require connections over the network
+server_bind = <%= @server_bind %>
+
+# LMTP port to listen on for LMTP connections
+lmtp_port = <%= @lmtp_port %>
+
+# Maximum LMTP threads that ca be running simultaneously
+# This is also limited by your SMTP server. (20 is the postfix default concurrency limit)
+lmtp_max_threads = <%= @lmtp_max_threads %>
+
+# run as specific user in LMTP mode.
+#   make sure this user is listed in local_admin_users in your zarafa server config
+#   or use SSL connections with certificates to login
+run_as_user = <%= @run_as_user %>
+
+# run as specific group in LMTP mode.
+run_as_group = <%= @run_as_group %>
+
+# control pid file
+pid_file = <%= @pid_file %>
+
+# The following e-mail header will mark the mail as spam, so the mail
+# is placed in the Junk Mail folder, and not the Inbox.
+# The name is case insensitive.
+# set to empty to not use this detection scheme.
+spam_header_name = <%= @spam_header_name %>
+
+# If the above header is found, and contains the following value
+# the mail will be considered as spam.
+# Notes: 
+#  - The value is case insensitive.
+#  - Leading and trailing spaces are stripped.
+#  - The word 'bayes' also contains the word 'yes'.
+spam_header_value = <%= @spam_header_value %>
+
+##############################################################
+# DAGENT ARCHIVING SETTINGS
+
+# Enable archive_on_delivery to automatically archive all incoming
+# messages on delivery.
+# This will do nothing if no archive is attached to the target mailbox.
+archive_on_delivery = <%= @archive_on_delivery %>
+
+##############################################################
+# DAGENT PLUGIN SETTINGS
+
+# Enable the dagent plugin framework
+plugin_enabled = <%= @plugin_enabled %>
+
+# Path to the dagent plugin manager
+plugin_manager_path = <%= @plugin_manager_path %>
+
+# Path to the activated dagent plugins.
+#   This folder contains symlinks to the zarafa plugins and custom scripts. The plugins are 
+#   installed in '/usr/share/zarafa-dagent/python/plugins/'. To activate a plugin create a symbolic 
+#   link in the 'plugin_path' directory.
+#
+# Example:
+#  $ ln -s /usr/share/zarafa-dagent/python/plugins/BMP2PNG.py /var/lib/zarafa/dagent/plugins/BMP2PNG.py
+plugin_path = <%= @plugin_path %>
+
+##############################################################
+# DAGENT RULE SETTINGS
+
+# Enable the addition of X-Zarafa-Rule-Action headers on messages
+# that have been forwarded or replied by a rule.
+# Default: yes
+set_rule_headers = <%= @set_rule_headers %>
+
+# Enable this option to prevent rules to cause a loop. An e-mail can only be forwarded 
+# once. When this option is enabled, the set_rule_headers option must also be enabled.
+# Default: no
+no_double_forward = <%= @no_double_forward %>
+
