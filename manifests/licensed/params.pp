@@ -1,0 +1,15 @@
+class zarafa::licensed::params {
+  $server_pipe_name = "/var/run/zarafa-licensed"
+  $server_socket = "file:///var/run/zarafa-prio"
+  $sslkey_file = "/etc/zarafa/ssl/licensed.pem"
+  $sslkey_pass = "replace-with-server-cert-password"
+  $license_path = "/etc/zarafa/license"
+  $run_as_user = ""
+  $run_as_group = ""
+  $pid_file = "/var/run/zarafa-licensed.pid"
+  $running_path = "/"
+  $log_method = "file"
+  $log_file = "/var/log/zarafa/licensed.log"
+  $log_level = "2"
+  $log_timestamp = "1"
+}

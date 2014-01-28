@@ -1,0 +1,51 @@
+###############################################################################
+# << FILE MANAGED BY PUPPET >>
+# Manual changes are likey to be overwritten
+###############################################################################
+
+##############################################################
+# SERVER SETTINGS
+
+# The socket that the license server will run on
+# default: /var/run/zarafa-licensed
+server_pipe_name = <%= @server_pipe_name %>
+
+# The URL on which we can contact zarafa-server
+# default: file:///var/run/zarafa
+server_socket = <%= @server_socket %>
+
+# Login to the Zarafa server using this SSL Key
+sslkey_file = <%= @sslkey_file %>
+
+# The password of the SSL Key
+sslkey_pass = <%= @sslkey_pass %>
+
+# License path (should contain 'base' and CALs in other files)
+license_path = <%= @license_path %>
+
+# drop privileges and run the process as this user
+run_as_user = <%= @run_as_user %>
+
+# drop privileges and run the process as this group
+run_as_group = <%= @run_as_group %>
+
+# create a pid file for stopping the service via the init.d scripts
+pid_file = <%= @pid_file %>
+
+# run server in this path (when not using the -F switch)
+running_path = <%= @running_path %>
+
+##############################################################
+# LOG SETTINGS
+
+# Logging method (syslog, file)
+log_method = <%= @log_method %>
+
+# Logfile (for log_method = file, '-' for stderr)
+log_file = <%= @log_file %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>
