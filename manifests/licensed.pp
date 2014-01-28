@@ -1,4 +1,6 @@
 class zarafa::licensed (
+  $base,
+  $cal = undef,
   $server_pipe_name = $zarafa::licensed::params::server_pipe_name,
   $server_socket = $zarafa::licensed::params::server_socket,
   $sslkey_file = $zarafa::licensed::params::sslkey_file,
