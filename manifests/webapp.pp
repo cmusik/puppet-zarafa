@@ -1,6 +1,6 @@
 class zarafa::webapp {
   include zarafa::webapp::install
-  #include zarafa::webapp::service
+  include zarafa::webapp::service
 
-  #Package["zarafa::webapp::install"] -> Service["zarafa::webapp::service"]
+  Class["zarafa::webapp::install"] -> Class["zarafa::webapp::service"]
 }

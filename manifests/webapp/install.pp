@@ -3,6 +3,10 @@ class zarafa::webapp::install {
     ensure => installed,
   }
 
+  package { "php-mapi":
+    ensure => installed,
+  }
+
   selboolean { "httpd_can_network_connect":
     persistent => true,
     value => "on",
