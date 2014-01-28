@@ -11,5 +11,9 @@ class zarafa::server::install {
     require => Class["mysql::server"]
   }
 
+  package { "zarafa-utils":
+    ensure => installed,
+  }
+
   Yumrepo["yaffas"] -> Package["zarafa-server"]
 }
