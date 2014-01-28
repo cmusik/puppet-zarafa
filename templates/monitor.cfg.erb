@@ -1,0 +1,71 @@
+###############################################################################
+# << FILE MANAGED BY PUPPET >>
+# Manual changes are likey to be overwritten
+###############################################################################
+
+##############################################################
+# ZARAFA MONITOR SETTINGS
+
+# Server unix socket location
+server_socket = <%= @server_socket %>
+
+# drop privileges and run the process as this user
+run_as_user = <%= @run_as_user %>
+
+# drop privileges and run the process as this group
+run_as_group = <%= @run_as_group %>
+
+# create a pid file for stopping the service via the init.d scripts
+pid_file = <%= @pid_file %>
+
+# run server in this path (when not using the -F switch)
+running_path = <%= @running_path %>
+
+##############################################################
+# ZARAFA MONITOR LOG SETTINGS
+
+# Logging method (syslog, file)
+log_method = <%= @log_method %>
+
+# Loglevel (0=no logging, 5=full logging)
+log_level = <%= @log_level %>
+
+# Logfile for log_method = file, use '-' for stderr
+log_file = <%= @log_file %>
+
+# Log timestamp - prefix each log line with timestamp in 'file' logging mode
+log_timestamp = <%= @log_timestamp %>
+
+##############################################################
+# MONITOR SSL LOGIN SETTINGS
+# 
+# Note: server_socket must be set to https://servername:portname/zarafa
+#       to use this type of login method
+
+# Login to the Zarafa server using this SSL Key
+sslkey_file = <%= @sslkey_file %>
+
+# The password of the SSL Key
+sslkey_pass = <%= @sslkey_pass %>
+
+##############################################################
+# ZARAFA MONITOR INTERVAL SETTINGS
+
+# Quota check interval (in minutes)
+quota_check_interval = <%= @quota_check_interval %>
+
+##############################################################
+# ZARAFA MONITOR MAIL QUOTA SETTINGS
+
+# Quota mail interval in days
+mailquota_resend_interval = <%= @mailquota_resend_interval %>
+
+# Templates to be used for quota emails which are send to the user
+# when the various user quota levels have been exceeded.
+userquota_warning_template = <%= @userquota_warning_template %>
+userquota_soft_template = <%= @userquota_soft_template %>
+userquota_hard_template = <%= @userquota_hard_template %>
+
+# Templates to be used for quota emails which are send to the company administrators
+# when the company quota level has been exceeded.
+companyquota_warning_template = <%= @companyquota_warning_template %>
