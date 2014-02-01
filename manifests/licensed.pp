@@ -15,9 +15,9 @@ class zarafa::licensed (
   $log_level = $zarafa::licensed::params::log_level,
   $log_timestamp = $zarafa::licensed::params::log_timestamp,
 ) inherits zarafa::licensed::params {
-  include zarafa::licensed::install
-  include zarafa::licensed::config
-  include zarafa::licensed::service
+  contain zarafa::licensed::install
+  contain zarafa::licensed::config
+  contain zarafa::licensed::service
 
   Class["zarafa::server"] -> Class["zarafa::licensed::install"] -> Class["zarafa::licensed::config"] -> Class["zarafa::licensed::service"]
 }

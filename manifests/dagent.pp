@@ -23,9 +23,9 @@ class zarafa::dagent (
   $set_rule_headers = $zarafa::dagent::params::set_rule_headers,
   $no_double_forward = $zarafa::dagent::params::no_double_forward,
 ) inherits zarafa::dagent::params {
-  include zarafa::dagent::install
-  include zarafa::dagent::config
-  include zarafa::dagent::service
+  contain zarafa::dagent::install
+  contain zarafa::dagent::config
+  contain zarafa::dagent::service
 
   Class["zarafa::server"] -> Class["zarafa::dagent::install"] -> Class["zarafa::dagent::config"] -> Class["zarafa::dagent::service"]
 }

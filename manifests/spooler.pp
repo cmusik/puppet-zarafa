@@ -30,9 +30,9 @@ class zarafa::spooler (
   $plugin_manager_path = $zarafa::spooler::params::plugin_manager_path,
   $plugin_path = $zarafa::spooler::params::plugin_path,
 ) inherits zarafa::spooler::params {
-  include zarafa::spooler::install
-  include zarafa::spooler::config
-  include zarafa::spooler::service
+  contain zarafa::spooler::install
+  contain zarafa::spooler::config
+  contain zarafa::spooler::service
 
-  Class["zarafa::server"] -> Class["zarafa::spooler::install"] -> Class["zarafa::server::config"] -> Class["zarafa::spooler::service"]
+  Class["zarafa::server"] -> Class["zarafa::spooler::install"] -> Class["zarafa::spooler::config"] -> Class["zarafa::spooler::service"]
 }

@@ -17,9 +17,9 @@ class zarafa::monitor (
   $userquota_hard_template = $zarafa::monitor::params::userquota_hard_template,
   $companyquota_warning_template = $zarafa::monitor::params::companyquota_warning_template,
 ) inherits zarafa::monitor::params {
-  include zarafa::monitor::install
-  include zarafa::monitor::config
-  include zarafa::monitor::service
+  contain zarafa::monitor::install
+  contain zarafa::monitor::config
+  contain zarafa::monitor::service
 
   Class["zarafa::server"] -> Class["zarafa::monitor::install"] -> Class["zarafa::monitor::config"] -> Class["zarafa::monitor::service"]
 }

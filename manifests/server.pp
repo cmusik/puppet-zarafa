@@ -202,9 +202,10 @@ class zarafa::server (
 )
 inherits zarafa::server::params {
 
-  include zarafa::server::install
-  include zarafa::server::config
-  include zarafa::server::service
+  contain zarafa::repo
+  contain zarafa::server::install
+  contain zarafa::server::config
+  contain zarafa::server::service
 
-  Class["mysql::server"] -> Class["zarafa::server::install"] -> Class["zarafa::server::config"] -> Class["zarafa::server::service"]
+  Class["mysql::server"] -> Class["zarafa::repo"] -> Class["zarafa::server::install"] -> Class["zarafa::server::config"] -> Class["zarafa::server::service"]
 }

@@ -35,9 +35,9 @@ class zarafa::gateway (
   $log_file = $zarafa::gateway::params::log_file,
   $log_timestamp = $zarafa::gateway::params::log_timestamp,
 ) inherits zarafa::gateway::params {
-  include zarafa::gateway::install
-  include zarafa::gateway::config
-  include zarafa::gateway::service
+  contain zarafa::gateway::install
+  contain zarafa::gateway::config
+  contain zarafa::gateway::service
 
-  Class["zarafa::server"] -> Class["zarafa::gateway::install"] -> Class["zarafa::server::config"] -> Class["zarafa::gateway::service"]
+  Class["zarafa::server"] -> Class["zarafa::gateway::install"] -> Class["zarafa::gateway::config"] -> Class["zarafa::gateway::service"]
 }

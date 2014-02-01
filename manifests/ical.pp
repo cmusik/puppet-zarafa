@@ -24,9 +24,9 @@ class zarafa::ical (
   $default_charset = $zarafa::ical::params::default_charset,
   $enable_ical_get = $zarafa::ical::params::enable_ical_get,
 ) inherits zarafa::ical::params {
-  include zarafa::ical::install
-  include zarafa::ical::config
-  include zarafa::ical::service
+  contain zarafa::ical::install
+  contain zarafa::ical::config
+  contain zarafa::ical::service
 
   Class["zarafa::server"] -> Class["zarafa::ical::install"] -> Class["zarafa::ical::config"] -> Class["zarafa::ical::service"]
 }

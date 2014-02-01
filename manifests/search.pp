@@ -27,9 +27,9 @@ class zarafa::search (
   $index_attachment_mime_filter = $zarafa::search::params::index_attachment_mime_filter,
   $index_attachment_extension_filter = $zarafa::search::params::index_attachment_extension_filter,
 ) inherits zarafa::search::params {
-  include zarafa::search::install
-  include zarafa::search::config
-  include zarafa::search::service
+  contain zarafa::search::install
+  contain zarafa::search::config
+  contain zarafa::search::service
 
   Class["zarafa::server"] -> Class["zarafa::search::install"] -> Class["zarafa::search::config"] -> Class["zarafa::search::service"]
 }
