@@ -4,8 +4,10 @@ class zarafa::server::service {
     subscribe => [ File["servercfg"], File["ldapcfg"] ],
   }
 
-  #exec { "zarafa-create-public-store":
-  #  command => "zarafa-admin -s",
-  #  onlyif => "pidof zarafa-server",
-  #}
+  exec { "zarafa-create-public-store":
+    command => "/bin/bash -c 'zarafa-admin -s && touch /etc/zarafa/.public-created'",
+    onlyif => "/bin/bash -c '[[ ! -f /etc/zarafa/.public-created ]] && pidof zarafa-server'",
+  }
+
+  Service["zarafa-server"] -> Exec["zarafa-create-public-store"]
 }
