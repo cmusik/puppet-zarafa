@@ -8,6 +8,18 @@ class zarafa::server::config inherits zarafa::server {
     default => "false",
   }
 
+  if ($ldap_type == "openldap" or $ldap_type == "ad") {
+    if ($server_type == "multi") {
+      $user_plugin = "ldapms"
+    }
+    else {
+      $user_plugin = "ldap"
+    }
+  }
+  else {
+    $user_plugin = $ldap_type
+  }
+
   # ldap
 
   $_ldap_type = $server_type ? {

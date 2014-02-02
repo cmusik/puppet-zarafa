@@ -78,7 +78,6 @@ class zarafa::server (
   $quota_soft = $zarafa::server::params::quota_soft,
   $quota_hard = $zarafa::server::params::quota_hard,
   $companyquota_warn = $zarafa::server::params::companyquota_warn,
-  $user_plugin = $zarafa::server::params::user_plugin,
   $user_plugin_config = $zarafa::server::params::user_plugin_config,
   $plugin_path = $zarafa::server::params::plugin_path,
   $createuser_script = $zarafa::server::params::createuser_script,
