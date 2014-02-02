@@ -1,2 +1,0 @@
-class zarafa::ldap::openldap {
-}

@@ -119,6 +119,7 @@ class zarafa::server::params  {
   $proxy_header = ""
 
   # ldap
+  #$ldap_host = "localhost"
   $ldap_host = "localhost"
   $ldap_port = "389"
   $ldap_protocol = "ldap"
