@@ -8,5 +8,12 @@ class zarafa::server::install {
     ensure => installed,
   }
 
+  package { "zarafa-multiserver":
+    ensure => $zarafa::server::server_type ? {
+      "multi" => installed,
+      default => absent
+    }
+  }
+
   Yumrepo["yaffas"] -> Package["zarafa-server"]
 }
