@@ -24,7 +24,7 @@
             ]
         }
     ],
-    "project_page": "(https://forge.puppetlabs.com/cmusik/zarafa)",
+    "project_page": "https://github.com/cmusik/puppet-zarafa",
     "source": "https://github.com/cmusik/puppet-zarafa",
     "summary": "Module for Zarafa Collaboration Platform",
     "tags": [
