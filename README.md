@@ -23,8 +23,6 @@ Support includes for:
 To use this you need a repository with all zarafa packages available. Packages can be downloaded from
 http://download.zarafa.com/community.
 
-### Beginning with zarafa
-
 ## Usage
 
 This modules defines several classes, one for each component of zarafa.
@@ -47,14 +45,17 @@ class { "zarafa::server":
   mysql_password => $mysql_password,
   server_name    => $hostname,
 }
+
+class { "zarafa-spooler": }
+class { "zarafa-dagent": }
 ```
 
 There are only two custom variables:
 
-  | name           | possible values   |
-  +----------------+-------------------+
-  | server_type    | standalone, multi |
-  | user_directory | db, openldap, ad  |
+| name           | possible values   |
+|----------------|-------------------|
+| server_type    | standalone, multi |
+| user_directory | db, openldap, ad  |
 
 All other options can be taken from the normal configuration. Just check the manpages or website.
 
