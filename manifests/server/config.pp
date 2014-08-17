@@ -533,6 +533,12 @@ class zarafa::server::config inherits zarafa::server {
     }
 
   }
+  elsif $user_plugin == "db" {
+    file { 'ldapcfg':
+      path   => "/etc/zarafa/ldap.cfg",
+      ensure => absent,
+    }
+  }
 
   file { "servercfg":
     path => "/etc/zarafa/server.cfg",
