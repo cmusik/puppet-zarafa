@@ -1,7 +1,7 @@
 class zarafa::server::service {
   service { "zarafa-server":
     ensure => running,
-    subscribe => [ File["servercfg"], File["ldapcfg"] ],
+    subscribe => [ File["servercfg"] ],
   }
 
   exec { "zarafa-create-public-store":
