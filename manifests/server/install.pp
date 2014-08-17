@@ -14,6 +14,4 @@ class zarafa::server::install {
       default => absent
     }
   }
-
-  Yumrepo["yaffas"] -> Package["zarafa-server"]
 }
