@@ -78,14 +78,19 @@ class zarafa::server::params  {
   $companyquota_warn = "0"
   $user_plugin = "db"
   $user_plugin_config = "/etc/zarafa/ldap.cfg"
-  if $::architecture == "x86_64" {
-    $plugin_path = "/usr/lib64/zarafa"
-  }
-  elsif $::architecture == "i386" {
-    $plugin_path = "/usr/lib/zarafa"
+  if $::lsbdistcodename == "trusty" {
+      $plugin_path = "/usr/lib/zarafa"
   }
   else {
-    fail("Unknown architecture ${::architecture}")
+    if $::architecture == "x86_64" or $::architecture == "amd64" {
+      $plugin_path = "/usr/lib64/zarafa"
+    }
+    elsif $::architecture == "i386" {
+      $plugin_path = "/usr/lib/zarafa"
+    }
+    else {
+      fail("Unknown architecture ${::architecture}")
+    }
   }
   $createuser_script = "/etc/zarafa/userscripts/createuser"
   $deleteuser_script = "/etc/zarafa/userscripts/deleteuser"
