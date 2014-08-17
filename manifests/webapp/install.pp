@@ -3,13 +3,20 @@ class zarafa::webapp::install {
     ensure => installed,
   }
 
-  package { "php-mapi":
+  case $::osfamily {
+    "debian": { $phpmapi = "php5-mapi" }
+    default: { $phpmapi = "php-mapi" }
+  }
+
+  package { $phpmapi:
     ensure => installed,
   }
 
-  selboolean { "httpd_can_network_connect":
-    persistent => true,
-    value => "on",
+  if $::osfamily == "redhat" {
+    selboolean { "httpd_can_network_connect":
+      persistent => true,
+      value => "on",
+    }
   }
 
 }
