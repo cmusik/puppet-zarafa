@@ -6,7 +6,7 @@
   "summary": "Module for Zarafa Collaboration Platform",
   "source": "https://github.com/cmusik/puppet-zarafa",
   "project_page": "(https://forge.puppetlabs.com/cmusik/zarafa)",
-  "issues_url": "",
+  "issues_url": "https://github.com/cmusik/puppet-zarafa/issues",
   "tags": ["zarafa"],
   "operatingsystem_support": [
     {
