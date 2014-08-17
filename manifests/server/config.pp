@@ -8,7 +8,7 @@ class zarafa::server::config inherits zarafa::server {
     default => "false",
   }
 
-  if ($ldap_type == "openldap" or $ldap_type == "ad") {
+  if ($user_directory == "openldap" or $user_directory == "ad") {
     if ($server_type == "multi") {
       $user_plugin = "ldapms"
     }
@@ -16,8 +16,11 @@ class zarafa::server::config inherits zarafa::server {
       $user_plugin = "ldap"
     }
   }
+  elsif ($user_directory == "db") {
+    $user_plugin = $user_directory
+  }
   else {
-    $user_plugin = $ldap_type
+    fail("Unknown value for user_directory")
   }
 
   # ldap
@@ -25,8 +28,8 @@ class zarafa::server::config inherits zarafa::server {
   if ($user_plugin == "ldap" or $user_plugin == "ldapms") {
 
     $_ldap_type = $server_type ? {
-      "multi" => "$ldap_type-ms",
-      default => $ldap_type,
+      "multi" => "$user_directory-ms",
+      default => $user_directory,
     }
 
     $_ldap_host = $ldap_host ? {

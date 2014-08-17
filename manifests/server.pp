@@ -1,5 +1,5 @@
 class zarafa::server (
-  $ldap_type = "openldap",
+  $user_directory = "db",
   $server_type = "standalone",
 
   $server_bind = $zarafa::server::params::server_bind,
