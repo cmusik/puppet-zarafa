@@ -1,0 +1,24 @@
+{
+  "name": "cmusik-zarafa",
+  "version": "0.1.0",
+  "author": "Christof Musik",
+  "license": "Apache 2.0",
+  "summary": "Module for Zarafa Collaboration Platform",
+  "source": "https://github.com/cmusik/puppet-zarafa",
+  "project_page": "(https://forge.puppetlabs.com/cmusik/zarafa)",
+  "issues_url": "",
+  "tags": ["zarafa"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "6.0" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "12.04", "14.04" ]
+    }
+   ]
+  "dependencies": [
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" },
+  ]
+}
